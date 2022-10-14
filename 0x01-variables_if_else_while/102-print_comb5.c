@@ -1,4 +1,4 @@
-include <stdio.h>
+#include <stdio.h>
 /**
  * main - Prints all possible combinations of a pair of
  *
@@ -30,7 +30,7 @@ int main(void)
 {
 	putchar(',');
 	putchar(' ');
-}	
+
 }
 }
 }
