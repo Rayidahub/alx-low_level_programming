@@ -33,6 +33,7 @@ int main(void)
 	putchar(',');
 	putchar(' ');
 }
+}
 	k++;
 }
 	k = '0';
