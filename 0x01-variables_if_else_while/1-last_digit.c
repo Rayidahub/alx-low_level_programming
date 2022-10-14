@@ -6,6 +6,7 @@
  * greater than or less than 5, or is zero..
 */
 int main(viod)
+
 {
 	int n;
 	char last[] = "Last digit of";
