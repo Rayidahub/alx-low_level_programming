@@ -1,19 +1,20 @@
 #include <stdio.h>
+#include <main.h>
 
 /**
- * main - enrty
- * Return: Always 0.
- */
-
+* main - Entry
+* Return: 0 on success.
+*/
 int main(void)
+
 {
 	char c[] = "_putchar";
-	int i;	
+	int i;
 
 	for (i = 0; i < 9; i++)
-		{
+{
 	putchar(c[i]);
-		}
-	putchar('\n');
+}
+	_putchar('\n');
 	return (0);
 }
