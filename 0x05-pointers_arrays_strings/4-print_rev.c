@@ -13,7 +13,6 @@ void print_rev(char *s)
 	for (i = len - 1; i >= 0; i--)
 		_putchar(s[i]);
 
-<<<<<<< HEAD
 	while (s[i] != '\0')
 	{
 		i++;
@@ -24,7 +23,5 @@ void print_rev(char *s)
 		(s[i--]);
 	}
 	('\n');
-=======
 	_putchar('\n');
->>>>>>> b01eb7badf87ef2d082afca4cad2efcc2d1f46b3
 }
