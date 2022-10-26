@@ -1,5 +1,8 @@
 #include <stdio.h>
-
+/**
+ * main - entry of  a[2] into a new line
+ * Return: always 0.
+ */
 int main(void)
 {
 	int n;
