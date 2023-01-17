@@ -1,51 +1,55 @@
 #include "lists.h"
+
 /**
- * insert_dnodeint_at_index - insert a new node in an index
- * @h: head of the list
+ * insert_dnodeint_at_index - Add node at nth index
+ *
+ * @h: Head of node
+ *
  * @idx: index
- * @n: value of the new node
- * Return: the addres of the new node
+ *
+ * @n: struct int
+ *
+ * Return: dlistint_t
  */
+
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *copy, *temp, *new;
-	unsigned int i = 0;
+	dlistint_t *new_node = malloc(sizeof(dlistint_t));
+	dlistint_t *current;
+	unsigned int count = 0;
 
-	copy = *h;
-	if (h == NULL)
-		return (NULL);
-	new = malloc(sizeof(dlistint_t));
-	if (!new)
-		return (NULL);
-	new->n = n;
-	if (idx == 0 && *h == NULL)
+	if (h == NULL || new_node == NULL)
 	{
-		new->next = copy, *h = new;
-		return (*h);
+		return (NULL);
 	}
-	while (copy != NULL)
+	new_node->n = n;
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	current = *h;
+
+	if (idx == 0)
 	{
-		if (idx == 0)
-		{
-			new->next = *h, copy->prev = new;
-			new->prev = NULL, *h = new;
-			return (*h);
-		}
-		if (i == (idx - 1))
-		{
-			if (copy->next == NULL)
-			{
-				new->next = NULL, new->prev = copy;
-				copy->next = new;
-				return (new);
-			}
-			temp = copy->next, new->next = temp;
-			temp->prev = new, new->prev = copy;
-			copy->next = new;
-			return (new);
-		}
-		i++;
-		copy = copy->next;
+		new_node = add_dnodeint(h, n);
+		return (new_node);
 	}
+	while (current)
+	{
+		if (current->next == NULL && count == idx - 1)
+		{
+			new_node = add_dnodeint_end(h, n);
+			return (new_node);
+		}
+		else if ((idx - 1) == count)
+		{
+			new_node->next = current->next;
+			new_node->prev = current;
+			current->next->prev = new_node;
+			current->next = new_node;
+			return (new_node);
+		}
+		count++;
+		current = current->next;
+	}
+	free(new_node);
 	return (NULL);
 }
